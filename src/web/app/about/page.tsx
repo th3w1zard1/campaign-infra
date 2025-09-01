@@ -1,12 +1,12 @@
+'use client';
+
 import Achievements from '../components/Achievements';
 import NewsletterSignup from '../components/NewsletterSignup';
-
-export const metadata = {
-  title: 'About Athena | Eugene Ward 5 City Council Candidate',
-  description: 'Learn about Athena Aguiar, candidate for Eugene Ward 5 City Council. Discover her background, values, and vision for Eugene, Oregon.',
-};
+import { getCampaignConfig } from '../lib/utils';
 
 export default function AboutPage() {
+  const campaign = getCampaignConfig();
+  
   return (
     <>
       <section className="page-header">
@@ -14,33 +14,32 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 font-display">
-                Meet Athena
+                Meet {campaign.candidateName}
               </h1>
               <p className="text-xl text-primary-100 mb-6">
-                A passionate advocate for Eugene, Oregon with the experience and vision to lead our community forward.
+                A passionate advocate for the community with the experience and vision to lead us forward.
               </p>
               <div className="prose prose-lg max-w-none text-primary-100">
                 <p>
-                  For over a decade, Athena has been a tireless advocate for the people of Eugene.
-                  From her early days as a community organizer to her leadership roles in local government
-                  and non-profit organizations, she has consistently put the needs of residents first.
+                  {/* TODO: Replace with candidate's background story */}
+                  For over [X] years, {campaign.candidateName} has been a dedicated public servant and community advocate.
+                  From [early career/background] to [current roles], they have consistently worked to improve the lives of residents.
                 </p>
                 <p>
-                  Born and raised in Eugene, Athena understands the unique challenges and opportunities
-                  our community faces. After graduating with honors from the University of Oregon with
-                  a degree in Public Administration, she returned to Eugene to dedicate her career to
+                  {/* TODO: Replace with candidate's local connection */}
+                  [Born and raised / Long-time resident] in [location], {campaign.candidateName} understands the unique challenges and opportunities
+                  our community faces. After [educational background], they [returned to/chose to make their home in] [location] to dedicate their career to
                   public service.
                 </p>
                 <p>
-                  Athena currently serves as a Precinct Committeeperson for the Democratic Party of Lane County
-                  and is a steering committee member of the DSA electoral-legislative group. Her hands-on approach
-                  to community organizing has resulted in significant positive changes for Eugene residents.
+                  {/* TODO: Replace with candidate's current roles and experience */}
+                  {campaign.candidateName} currently serves as [current positions/roles] and has experience in [relevant areas].
+                  Their hands-on approach to [community work/organizing/leadership] has resulted in [specific achievements].
                 </p>
                 <p>
-                  As a former environmental steward and Director of the Eugene Economic Development Council, 
-                  Athena helped create hundreds of jobs by attracting new businesses to the area while supporting 
-                  existing local enterprises and protecting our natural resources. Her innovative approach to 
-                  sustainable community development has earned recognition across the state.
+                  {/* TODO: Replace with candidate's professional experience */}
+                  As a former [previous role] and [other experience], {campaign.candidateName} has [specific achievements and impact].
+                  Their [approach/philosophy] to [relevant area] has earned recognition for [specific accomplishments].
                 </p>
               </div>
             </div>
@@ -48,11 +47,11 @@ export default function AboutPage() {
             <div className="flex justify-center">
               <div className="platform-card">
                 <div className="h-96 bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center rounded-t-lg">
-                  <span className="text-white text-2xl font-bold">Athena</span>
+                  <span className="text-white text-2xl font-bold">{campaign.candidateName}</span>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-2xl font-semibold text-foreground">Athena Johnson</h3>
-                  <p className="text-primary-campaign font-medium">Candidate for Eugene, Oregon</p>
+                  <h3 className="text-2xl font-semibold text-foreground">{campaign.candidateName}</h3>
+                  <p className="text-primary-campaign font-medium">Candidate for {campaign.position}</p>
                   <ul className="mt-3 text-muted-foreground">
                     <li className="flex items-center">
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-primary-campaign" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -152,15 +151,15 @@ export default function AboutPage() {
             </h2>
             <div className="prose prose-lg mx-auto dark:prose-dark">
               <p className="text-muted-foreground">
-                When not working for the community, Athena enjoys spending time with her family,
-                hiking the beautiful trails around Eugene, and volunteering at the local animal shelter.
-                She is an avid reader, particularly of history and public policy, and hosts a monthly
-                book club focused on civic engagement.
+                {/* TODO: Replace with candidate's personal interests and community involvement */}
+                When not working for the community, {campaign.candidateName} enjoys [personal interests/hobbies]
+                and [community activities]. They are particularly passionate about [specific interests]
+                and [community involvement activities].
               </p>
               <p className="text-muted-foreground">
-                Athena lives in the Oak Ridge neighborhood with her husband Michael, their two children,
-                and their rescue dog, Scout. They are active members of the Eugene Community Church and
-                regular volunteers at the Eugene Food Bank.
+                {/* TODO: Replace with candidate's family/personal life (optional - only include if candidate wants to share) */}
+                {campaign.candidateName} [family situation] and [other personal details if desired].
+                They are [community involvement] and [volunteer activities].
               </p>
             </div>
           </div>
