@@ -68,11 +68,11 @@ entryPoints:
 #        - "152.117.108.32"   # wizard-pc
     http:
       tls:
-        certResolver: athena_duckdns_letsencrypt
+        certResolver: campaign_letsencrypt
         domains:
-          - main: "athenaforeugene.duckdns.org"
+          - main: "[CAMPAIGN_DOMAIN]"
             sans:
-              - "*.athenaforeugene.duckdns.org"
+              - "*.[CAMPAIGN_DOMAIN]"
 
 # Multiple DNS challenge provider are not supported with Traefik, but you can use CNAME to handle that.
 # For example, if you have example.org (account foo) and example.com (account bar) you can create a CNAME on
@@ -87,10 +87,10 @@ x-dns-resolvers: &dns-resolvers
   - 8.8.4.4
 
 certificatesResolvers:
-  athena_duckdns_letsencrypt:
+  campaign_letsencrypt:
     acme:
-      email: boden.crouch@gmail.com
-      storage: /certs/acme_athena_duckdns_letsencrypt.json
+      email: "[LETS_ENCRYPT_EMAIL]"
+      storage: /certs/acme_campaign_letsencrypt.json
       dnsChallenge:
         provider: duckdns
         resolvers: *dns-resolvers
