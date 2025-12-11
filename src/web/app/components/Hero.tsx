@@ -3,12 +3,15 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { BackgroundDecorator } from './BackgroundDecorator';
+import { getCampaignConfig } from '../lib/utils';
 
 interface HeroProps {
   className?: string;
 }
 
 const Hero = ({ className = '' }: HeroProps) => {
+  const campaign = getCampaignConfig();
+  
   return (
     <div className={`hero-section ${className}`}>
       {/* Background decorative elements */}
@@ -20,14 +23,14 @@ const Hero = ({ className = '' }: HeroProps) => {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 font-display">
               <span className="text-white">Vote</span>{' '}
               <span className="text-white text-6xl md:text-7xl lg:text-8xl block font-black tracking-tight">
-                Athena
+                {campaign.candidateName}
               </span>
             </h1>
             <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-secondary-200">
-              City Council
+              {campaign.position}
             </div>
             <div className="text-xl md:text-2xl font-semibold text-secondary-300 mb-8">
-              2026
+              {campaign.electionYear}
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
@@ -48,7 +51,7 @@ const Hero = ({ className = '' }: HeroProps) => {
             <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-white shadow-2xl">
               <Image
                 src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/candidate-profile.jpg`}
-                alt="Athena Aguiar, Candidate for Eugene Ward 5 City Council"
+                alt={`${campaign.candidateName}, Candidate for ${campaign.position}`}
                 fill
                 style={{ objectFit: 'cover' }}
                 priority
